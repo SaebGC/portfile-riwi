@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header> 
+      <nav>
+       <ul>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="#about">About</a></li>
+         <li><a href="#projects">Projects</a></li>
+         <li><a href="#contact">Contact</a></li>
+         <li><a href="pets.html">Pets</a></li>
+       </ul>
+      </nav>
+    </header>
+
+    <section id="home">
+      <div class="tittle">
+        <h1>Welcome to my portfile</h1>
+        <p>Explore my site for more information about my projects and contact details.</p>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>About me</h2>
+        <p>I'm Saeb and I'm studying software development and English, I really enjoy coding and solving problems.</p>
+      </div>
+    </section>
+    
+    <!--Projects 1-->
+    <section id="projects">
+        <div class="container">
+          <h2>Projects</h2>
+          <div class="projects-container">
+            <!--card 1-->
+            <div class="project-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR_9vmzgl1b7iqNE9-h1mWSdlHNnRosmiYVA&s" alt="Pimpekk">
+              <h3>Social App</h3>
+              <p>This is like an Instagram clon</p>
+              <a href="https://pimpekk.co" class="button-link">Pimpekk</a>
+            </div>
+
+            <!--card 2-->
+            <div class="project-card">
+              <img src="https://marketplace.canva.com/EAFJng1TT4I/2/0/1600w/canva-logo-veterinaria-simple-blanco-y-negro-hMOE3zP7Mv0.jpg" alt="Veterinary">
+              <h3>Veterinary</h3>
+              <p>This is a landing page</p>
+              <a href="https://veterinary.co" class="button-link">Veterinary</a>
+            </div>
+
+            <!--card 3-->
+            <div class="project-card">
+              <img src="data:image/png;base64,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" alt="Pokedex">
+              <h3>PokeDex</h3>
+              <p>This is a pokedex with API</p>
+              <a href="https://pokedex.co" class="button-link">PokeDex</a>
+            </div>
+
+          </div>
+        </div>
+    </section>
+      
+    <!--Contact-->
+    <section id="contact">
+        <div class="container">
+          <h2>Contact</h2>
+          <form id="contactForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+          </form>
+        </div>
+    </section>
+
+    <footer>
+      <p>&copy;This web site was made for Saeb</p>
+      <a href="pets.html">Pets</a>
+    </footer>
+</body>
+</html>
