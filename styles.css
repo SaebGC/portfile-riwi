@@ -1,62 +1,73 @@
-/* General Styles */
-*{
+/* ===== RESET & BASE STYLES ===== */
+* {
   padding: 0;
   margin: 0;
-}
-body { 
-  font-family: 'Courier New', Courier, monospace;
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
   background-color: #171717;
   color: #e0e0e0;
 }
 
-/* Header Styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #ffce2e;
+/* Header: flex container fixed at the top */
+header {
   position: fixed;
   top: 0;
   width: 100%;
+  background-color: #ffce2e;
+  z-index: 100;
 }
 
-ul li{
-    float: left;
+/* Nav: flex container to align the ul horizontally */
+nav {
+  display: flex;            /* Flex container */
+  align-items: center;      /* Vertically center content */
+  width: 100%;
 }
 
+/* Nav list: flex container to distribute links evenly */
+ul {
+  display: flex;                  /* Flex container for nav links */
+  justify-content: flex-start;    /* Distribute links from left */
+  align-items: center;            /* Vertically center links */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #ffce2e;
+}
+
+/* Individual nav link */
 ul li a {
   display: flex;
+  align-items: center;
   color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-/* Change the link and background color on hover */
+/* Nav link hover effect */
 li a:hover {
   background-color: #FFED96;
   color: black;
   transition: all ease-in 0.2s;
-
 }
 
-ol li {
-  display: flex;
-  color: black;
-}
-
-/* Tittle Styles */
-
+/* ===== HOME SECTION ===== */
 .tittle {
   text-align: center;
-  padding: 67px 20px;
+  padding: 90px 20px 67px;    /* top padding compensates for fixed header */
   background-color: #222;
 }
+
 .tittle h1 {
   font-size: 3.1rem;
 }
@@ -66,18 +77,13 @@ ol li {
   margin: 20px 0;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Header Styles */
-
+/* ===== ABOUT SECTION ===== */
 #about {
   background-color: #171717;
   padding: 50px 20px;
 }
 
+/* ===== SHARED LAYOUT ===== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -95,13 +101,11 @@ p {
   text-align: center;
 }
 
-/* Projects Section */
-
+/* Projects */
 #projects {
- background-color: #222;
- color: #F2F2F2;
- padding: 35px 20px;
-
+  background-color: #222;
+  color: #F2F2F2;
+  padding: 35px 20px;
 }
 
 #projects h2 {
@@ -109,25 +113,35 @@ p {
   font-size: 2.5rem;
   margin-bottom: 40px;
   padding: 6px 20px;
-
 }
 
-.projects a:hover {
-  background-color: black;
-  color: whitesmoke;
-}
-
+/* Projects grid container */
 .projects-container {
- display: flex;
- justify-content: center;
- gap: 30px;
- flex-wrap: wrap;
+  display: grid;                          /* Grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 30px;                             /* Space between cards */
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
+/* Responsive: 2 columns on medium screens */
+@media (max-width: 900px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive: 1 column on small/mobile screens */
+@media (max-width: 600px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Individual project card */
 .project-card {
   background-color: #333;
   color: white;
-  width: 300px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -157,6 +171,7 @@ p {
   margin-bottom: 15px;
 }
 
+/* Project card button */
 .button-link {
   background-color: #ffce2e;
   color: black;
@@ -171,20 +186,22 @@ p {
   transition: all ease-in 0.2s;
 }
 
-/* Contact Section */
-#contact h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
+/* ===== CONTACT SECTION ===== */
 #contact {
   background-color: #171717;
   padding: 50px 20px;
 }
 
+#contact h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Contact form: flex column layout */
 form {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   gap: 15px;
   max-width: 600px;
   margin: 0 auto;
@@ -207,19 +224,17 @@ button[type="submit"] {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  padding: 10px;
 }
 
 button[type="submit"]:hover {
   background-color: #FFE04D;
 }
 
+/* ===== FOOTER ===== */
 footer {
   background-color: #222;
   color: white;
   text-align: center;
   padding: 20px 0;
 }
-
-
-
-

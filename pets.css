@@ -1,4 +1,4 @@
-/* ===== BASE ===== */
+/* ===== RESET & BASE ===== */
 * {
   padding: 0;
   margin: 0;
@@ -16,27 +16,36 @@ a {
   color: inherit;
 }
 
-/* ===== NAVBAR ===== */
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #ffce2e;
+/* ===== HEADER & NAV — FLEXBOX ===== */
+header {
   position: fixed;
   top: 0;
   width: 100%;
+  background-color: #ffce2e;
   z-index: 100;
 }
 
-ul li {
-  float: left;
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #ffce2e;
 }
 
 ul li a {
-  display: block;
+  display: flex;
+  align-items: center;
   color: black;
-  text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
@@ -58,7 +67,7 @@ li a:hover {
 #pets {
   background-color: #222;
   color: #F2F2F2;
-  padding: 100px 20px 60px; /* top padding compensa el navbar fijo */ 
+  padding: 100px 20px 60px;
   min-height: 100vh;
 }
 
@@ -76,19 +85,20 @@ li a:hover {
   letter-spacing: 0.05em;
 }
 
-/* ===== CARDS GRID ===== */
+/* ===== PET GALLERY — FLEXBOX + GRID ===== */
 .pets-container {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
   flex-wrap: wrap;
 }
 
-/* ===== INDIVIDUAL CARD ===== */
+/* ===== PET CARD ===== */
 .pet-card {
   background-color: #333;
   color: white;
-  width: 260px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -100,7 +110,7 @@ li a:hover {
   box-shadow: 0 6px 18px rgba(255, 206, 46, 0.35);
 }
 
-/* img with badge */
+/* ===== CARD IMAGE ===== */
 .pet-img-wrap {
   position: relative;
 }
@@ -123,10 +133,9 @@ li a:hover {
   padding: 4px 10px;
   border-radius: 20px;
   letter-spacing: 0.05em;
-  font-family: 'Courier New', Courier, monospace;
 }
 
-/* Pet info */
+/* ===== CARD INFO ===== */
 .pet-info {
   padding: 18px 20px 22px;
   text-align: center;
@@ -142,6 +151,19 @@ li a:hover {
   font-size: 0.95rem;
   line-height: 1.5;
   color: #ccc;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .pets-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .pets-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ===== FOOTER ===== */
