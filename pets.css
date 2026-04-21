@@ -7,8 +7,9 @@
 
 body {
   font-family: 'Courier New', Courier, monospace;
-  background-color: #171717;
-  color: #e0e0e0;
+  background-color: var(--bg-1);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -65,8 +66,8 @@ li a:hover {
 
 /* ===== PETS SECTION ===== */
 #pets {
-  background-color: #222;
-  color: #F2F2F2;
+  background-color: var(--bg-2);
+  color: var(--text);
   padding: 100px 20px 60px;
   min-height: 100vh;
 }
@@ -168,9 +169,22 @@ li a:hover {
 
 /* ===== FOOTER ===== */
 footer {
-  background-color: #222;
-  color: white;
+  background-color: var(--bg-2);
+  color: var(--text);
   text-align: center;
   padding: 20px 0;
   border-top: 1px solid #333;
 }
+
+:root {
+  --bg: #171717;
+  --text: #e0e0e0;
+}
+
+[data-theme="light"] {
+  --bg: #f5f5f5;
+  --text: #111111;
+}
+
+#pets   { background-color: var(--bg); }
+footer  { background-color: var(--bg); }
