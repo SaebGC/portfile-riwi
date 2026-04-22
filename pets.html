@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pets</title>
   <link rel="stylesheet" href="pets.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -13,18 +14,14 @@
       <ul>
         <li><a href="index.html">Home</a></li>
       </ul>
-      <button id="theme-toggle" onclick="toggleTheme()" style="
-          margin-left: auto;
-          margin-right: 16px;
-          background: none;
-          border: 2px solid black;
-          border-radius: 20px;
-          padding: 6px 14px;
-          cursor: pointer;
-          font-family: 'Courier New', monospace;
-          font-size: 0.9rem;
-          font-weight: bold;">☀ Light
-        </button>
+        <div class="toggle-wrapper">
+          <input type="checkbox" class="checkbox" id="checkbox">
+          <label for="checkbox" class="checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span class="ball"></span>
+          </label>
+        </div>
     </nav>
   </header>
 

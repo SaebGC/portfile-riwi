@@ -1,18 +1,29 @@
-function toggleTheme() { // this makes the button work, toggling between light and dark themes and saving the choice
-  const current = document.documentElement.getAttribute('data-theme'); // get current theme
-  const next = current === 'light' ? 'dark' : 'light'; // determine next theme
-  document.documentElement.setAttribute('data-theme', next); // apply next theme
-  localStorage.setItem('theme', next); // save choice in localStorage
-  updateButton(next); // update button text
-}
+// Restore saved theme immediately (before DOM loads to avoid flash)
+const saved = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', saved);
 
-function updateButton(theme) { // update the toggle button text based on current theme
-  const btn = document.getElementById('theme-toggle'); // get the button element
-  if (!btn) return; // safety check in case button is missing
-  btn.textContent = theme === 'light' ? '☾ Dark' : '☀ Light'; // set text to indicate the opposite theme
-}
+// Sync checkbox state on load
+document.addEventListener('DOMContentLoaded', function () { // wait for DOM to be ready
+  const checkbox = document.getElementById('checkbox'); // get theme toggle checkbox
+  if (checkbox) {
+    checkbox.checked = saved === 'light'; // checked = light mode
+    checkbox.addEventListener('change', function () { // on toggle
+      const next = this.checked ? 'light' : 'dark'; // determine next theme
+      document.documentElement.setAttribute('data-theme', next); // apply theme
+      localStorage.setItem('theme', next); // save preference
+    });
+  }
+});
 
-// Restore saved theme on load
-const saved = localStorage.getItem('theme') || 'dark'; // default to dark if no saved theme
-document.documentElement.setAttribute('data-theme', saved); // apply saved theme
-updateButton(saved); // update button text on load
+// Handle contact form submission
+  document.getElementById('contactForm').addEventListener('submit', function (e) { // form submission event
+  e.preventDefault(); // prevent actual form submission
+  alert('Your message has been sent!'); // visible on screen
+});
+
+
+window.toggleMenu = function() { // toggle menu visibility on small screens
+  const menu = document.getElementById('nav-menu'); // get menu element
+  if (!menu) return; // safety check
+  menu.classList.toggle('open'); // toggle 'open' class to show/hide menu
+};

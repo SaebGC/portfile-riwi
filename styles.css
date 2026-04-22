@@ -9,7 +9,7 @@ body {
   font-family: 'Courier New', Courier, monospace;
   background-color: var(--bg);
   color: var(--text);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
 
 }
 
@@ -32,6 +32,13 @@ nav {
   display: flex;            /* Flex container */
   align-items: center;      /* Vertically center content */
   width: 100%;
+}
+
+/* button hamburger */
+#menu-toggle {
+  display: none;
+  transition: all ease-in 0.3s;
+
 }
 
 /* Nav list: flex container to distribute links evenly */
@@ -103,6 +110,11 @@ p {
   text-align: center;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Projects */
 #projects {
   background-color: var(--bg-1);
@@ -119,9 +131,9 @@ p {
 
 /* Projects grid container */
 .projects-container {
-  display: grid;                          /* Grid layout */
+  display: grid; /* Grid layout */
   grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  gap: 30px;                             /* Space between cards */
+  gap: 30px; /* Space between cards */
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -139,6 +151,44 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 600px) {
+/* show hamburger button */
+    #menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 10px 16px;
+    transition: all ease-in 0.3s;
+  }
+/* hide nav menu for mobile */
+   #nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffce2e;
+    position: absolute;
+    top: 48px;   /* altura del header */
+    left: 0;
+    transition: all ease-in 0.3s;
+  }
+/* show menu when is active */
+    #nav-menu.open {
+    display: flex;
+  }
+  
+  nav {
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  #theme-toggle {
+    margin-left: auto;
+  }
+}
+
 
 /* Individual project card */
 .project-card {
@@ -252,4 +302,49 @@ footer {
   --bg-1: #f5f5f5;
   --bg-2: #e0e0e0;
   --text: #111111;
+}
+
+
+/* ===== DARK/LIGHT TOGGLE ===== */
+.toggle-wrapper {
+  margin-left: auto;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon { color: #f1c40f; }
+.fa-sun  { color: #f39c12; }
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
 }
